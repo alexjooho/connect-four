@@ -56,18 +56,18 @@ function makeHtmlBoard() {
   // uses HEIGHT to create table rows
   // uses WIDTH to create table cells for each row
   for (let y = 0; y < HEIGHT; y++) {
-    // TODO: Create a table row element and assign to a "row" variable
+    // Create a table row element and assign to a "row" variable
     const row = document.createElement("tr");
     for (let x = 0; x < WIDTH; x++) {
-      // TODO: Create a table cell element and assign to a "cell" variable
+      // Create a table cell element and assign to a "cell" variable
       const cell = document.createElement("td");
-      // TODO: add an id, y-x, to the above table cell element
+      // add an id, y-x, to the above table cell element
       // you'll use this later, so make sure you use y-x
         cell.setAttribute("id", `${y}-${x}`);
-      // TODO: append the table cell to the table row
+      // append the table cell to the table row
       row.append(cell);
     }
-    // TODO: append the row to the html board
+    // append the row to the html board
     htmlBoard.append(row);
   }
 }
@@ -82,8 +82,13 @@ function findSpotForCol(x) {
 /** placeInTable: update DOM to place piece into HTML table of board */
 
 function placeInTable(y, x) {
+    let newDiv = document.createElement("div");
+    newDiv.classList.add("piece", `p${currPlayer}`);
+      
+      let cell = document.getElementById(`${y}-${x}`);  // why did it not work with querySelector(`#${i}-${j}`)
+      cell.append(newDiv);
+    }
   // TODO: make a div and insert into correct table cell
-}
 
 /** endGame: announce game end */
 
@@ -104,6 +109,7 @@ function handleClick(evt) {
   }
 
   // place piece in board and add to HTML table
+  board[y][x] = currPlayer;
   // TODO: add line to update in-memory board
   placeInTable(y, x);
 
