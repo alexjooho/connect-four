@@ -63,7 +63,7 @@ function makeHtmlBoard() {
       const cell = document.createElement("td");
       // add an id, y-x, to the above table cell element
       // you'll use this later, so make sure you use y-x
-        cell.setAttribute("id", `${y}-${x}`);
+      cell.setAttribute("id", `${y}-${x}`);
       // append the table cell to the table row
       row.append(cell);
     }
@@ -82,18 +82,18 @@ function findSpotForCol(x) {
 /** placeInTable: update DOM to place piece into HTML table of board */
 
 function placeInTable(y, x) {
-    let newDiv = document.createElement("div");
-    newDiv.classList.add("piece", `p${currPlayer}`);
-      
-      let cell = document.getElementById(`${y}-${x}`);  // why did it not work with querySelector(`#${i}-${j}`)
-      cell.append(newDiv);
-    }
-  // TODO: make a div and insert into correct table cell
+  let newDiv = document.createElement("div");
+  newDiv.classList.add("piece", `p${currPlayer}`);
+
+  let cell = document.getElementById(`${y}-${x}`);  // why did it not work with querySelector(`#${i}-${j}`)
+  cell.append(newDiv);
+}
+// TODO: make a div and insert into correct table cell
 
 /** endGame: announce game end */
 
 function endGame(msg) {
-  // TODO: pop up alert message
+  alert(msg);
 }
 
 /** handleClick: handle click of column top to play piece */
@@ -120,9 +120,17 @@ function handleClick(evt) {
 
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
+    // if(board.every(!null)) {
+    //   endGame("TIE GAME");
+    // } returned an error
+    if(board[0].every(x => x)){
+      endGame("TIE GAME");
+    }
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
+  // currPlayer === 1 ? currPlayer = 2 : currPlayer =1;
+  currPlayer = (currPlayer === 1 ? 2 : 1);
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
