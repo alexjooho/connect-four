@@ -44,7 +44,7 @@ function makeHtmlBoard() {
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
 
-  // TODO: loop will create a data cell
+  // loop will create a data cell
   for (let x = 0; x < WIDTH; x++) {
     let headCell = document.createElement("td");
     headCell.setAttribute("id", x);
@@ -63,7 +63,7 @@ function makeHtmlBoard() {
       const cell = document.createElement("td");
       // TODO: add an id, y-x, to the above table cell element
       // you'll use this later, so make sure you use y-x
-        cell.setAttribute("id", 'y-x');
+        cell.setAttribute("id", `${y}-${x}`);
       // TODO: append the table cell to the table row
       row.append(cell);
     }
