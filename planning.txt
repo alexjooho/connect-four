@@ -1,0 +1,24 @@
+Before looking at our code, take a few minutes to think about how you would build a game like this using HTML/JS/CSS:
+
+1. what HTML would be useful for the game board itself?
+    h1 initial heading with the name connect four centered
+    making sqare boxes (each could be a divs) of the 7x 6 grid
+    making 1 row of transparent boxes on the top row
+    
+
+2. how could you represent a played-piece in the HTML board?
+    makes the div turn either red or white - once the box is clicked, you cannot click it again. look at flip card code to block
+
+3. in the JavaScript, what would be a good structure for the in-memory game board?
+    [array of values] if an array has 4 Blue or Red values horizontal/vertical alert winner (prev problem set on the grid)
+4. what might the flow of the game be?
+    start a new game. either refresh the browser or create a button
+    initial click is blue followed by red until someone wins or all the boxes/arrays are full
+
+5. Then, write down some functions names/descriptions that would be useful for this game.
+    function resetGame will reload the html and make all of the boxes clickable
+    function selectEmptySquare click event that will select an empty box and turn it red or blue
+    function changePlayers will alternate between red or blue colors
+    function trackMoves can track the moves of each player
+    function alertWinner when either blue  or red wins. sends a notification
+    function alertGameover when all the boxes are full and neither player has 4 in a row.
