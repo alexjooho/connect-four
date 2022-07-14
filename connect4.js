@@ -75,8 +75,12 @@ function makeHtmlBoard() {
 /** findSpotForCol: given column x, return bottom empty y (null if filled) */
 
 function findSpotForCol(x) {
-  // TODO: write the real version of this, rather than always returning 5
-  return 5;
+  for(let i = board.length -1; i >=0; i--) {
+    if(board[i][x] === null) {
+      return i;
+    }
+  }
+  return null;
 }
 
 /** placeInTable: update DOM to place piece into HTML table of board */
