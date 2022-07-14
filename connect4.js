@@ -147,12 +147,10 @@ function checkForWin() {
    * currPlayer
    */
   function _win(cells) {
-
     // TODO: Check four cells to see if they're all legal & all color of current
     // player
-    for(let cell of cells) {
+  /*  for(let cell of cells) {
       if(board[cell[0]][cell[1]] === null || board[cell[0]][cell[1]] === undefined) {
-        debugger
         return false;
       }
       if(currPlayer !== board[cell[0]][cell[1]]) {
@@ -160,8 +158,18 @@ function checkForWin() {
         }
     }
     return true;
+    */
+// It's not working because when board[y] is undefined, it can't search for a board[x]!!
+
+    for(let cell of cells) {
+
+      if(!board[cell[0]]) return false;
+      if(!board[cell[0]][cell[1]]) return false;
+      if(board[cell[0]][cell[1]] !== currPlayer) return false;
 
   }
+  return true;
+}
 
   // using HEIGHT and WIDTH, generate "check list" of coordinates
   // for 4 cells (starting here) for each of the different
